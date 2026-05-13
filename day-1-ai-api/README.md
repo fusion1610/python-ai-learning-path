@@ -9,5 +9,5 @@ Built a FastAPI backend connected to a local LLM using Ollama.
 
 ## Run
 
-ollama serve
-uvicorn main:app --reload
+- ollama serve
+- uvicorn main:app --reload
