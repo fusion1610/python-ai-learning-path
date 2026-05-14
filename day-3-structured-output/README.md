@@ -82,8 +82,10 @@ A FastAPI endpoint (`/extract`) is created to:
 ```
 day-03-structured-output/
 │
-├── main.py              # FastAPI app with /extract endpoint
-├── test_ai.py           # Testing script for structured output
+│──app/
+    ├── main.py              # FastAPI app with /extract endpoint
+    ├── test_ai.py           # Testing script for structured output
+         
 ├── requirements.txt
 ├── .gitignore
 └── README.md
