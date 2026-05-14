@@ -176,6 +176,15 @@ This project uses a local LLM via Ollama, so no external API cost is involved.
 
 ---
 
+## 🔑 Key Takeaway
+On Day 3, I built an AI-powered data extraction system where the model returns structured JSON instead of plain text.
+
+I used prompt engineering with a strict system prompt to force the LLM to output only valid JSON for fields like vendor and amount. Then, in my FastAPI backend, I parsed the response using json.loads to ensure the output is usable and reliable.
+
+So instead of just generating responses, I made the system produce structured data that can directly power automation workflows like invoice processing.
+
+---
+
 ## 📢 Journey
 
 This is Day 3 of my 45-day journey into AI Engineering.
