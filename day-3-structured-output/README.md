@@ -1,12 +1,12 @@
-# Day 2 — AI Chat Backend with Memory 🚀
+# Day 3 — Structured Outputs with AI (JSON Extraction) 🚀
 
 This project is part of my journey transitioning from Software Engineer to Applied AI Engineer.
 
 ## 📌 What I Built
 
-An AI-powered backend using FastAPI and a local LLM (via Ollama) that supports **multi-turn conversations (chat memory)**.
+An AI-powered backend using FastAPI and a local LLM (via Ollama) that extracts **structured data (JSON)** from unstructured text.
 
-Unlike a simple chatbot, this system can understand context by processing previous messages in a conversation.
+Instead of returning plain text responses, the system generates **clean, machine-readable JSON output**, enabling real-world automation use cases.
 
 ---
 
@@ -17,48 +17,73 @@ Unlike a simple chatbot, this system can understand context by processing previo
 * Ollama (local LLM)
 * Requests
 * Pydantic
+* JSON parsing
 
 ---
 
 ## 🧠 Key Concepts Implemented
 
-### 1. Chat Memory
+### 1. Structured Outputs
 
-Instead of sending a single message, the API accepts a list of messages:
+The AI is prompted to return responses strictly in JSON format instead of natural language.
 
-* `user`
-* `assistant`
+Example:
 
-This allows the model to generate context-aware responses.
+Input:
+
+```text
+Invoice from Amazon for ₹5000
+```
+
+Output:
+
+```json
+{
+  "vendor": "Amazon",
+  "amount": 5000
+}
+```
 
 ---
 
-### 2. System Prompt
+### 2. Prompt Engineering for JSON
 
-A system message is added to control AI behavior:
+A strict system prompt is used to enforce structured output:
 
-```
-"You are a helpful AI assistant"
+```text
+You are a strict JSON generator.
+Return ONLY valid JSON.
+Do not include explanation or extra text.
 ```
 
 ---
 
-### 3. Memory Limiting
+### 3. JSON Validation
 
-Only the last few messages are sent to the model to:
+The response is parsed using Python’s `json.loads()` to ensure:
 
-* reduce latency
-* avoid token overflow
+* valid JSON format
+* reliable downstream usage
+
+---
+
+### 4. API-Based Extraction System
+
+A FastAPI endpoint (`/extract`) is created to:
+
+* accept user input
+* send it to the LLM
+* return structured JSON data
 
 ---
 
 ## 📁 Project Structure
 
 ```
-day-02-chat-memory/
+day-03-structured-output/
 │
-├── main.py              # FastAPI app
-├── test_ai.py           # Local testing script
+├── main.py              # FastAPI app with /extract endpoint
+├── test_ai.py           # Testing script for structured output
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -92,11 +117,7 @@ http://127.0.0.1:8000/docs
 
 ```json
 {
-  "messages": [
-    {"role": "user", "content": "What is FastAPI?"},
-    {"role": "assistant", "content": "FastAPI is a Python web framework."},
-    {"role": "user", "content": "Why is it popular?"}
-  ]
+  "message": "Invoice from Flipkart for ₹12000"
 }
 ```
 
@@ -106,40 +127,53 @@ http://127.0.0.1:8000/docs
 
 ```json
 {
-  "response": "FastAPI is popular because it is fast, easy to use, and supports automatic API documentation."
+  "data": {
+    "vendor": "Flipkart",
+    "amount": 12000
+  }
 }
 ```
 
 ---
 
-## 🔥 What I Learned
+## ⚠️ Challenges & Fixes
 
-* How to implement chat memory using message history
-* How LLMs use context to generate better responses
-* How to structure AI APIs using FastAPI
-* Importance of limiting context (memory management)
+### Problem:
+
+AI sometimes returns extra text along with JSON.
+
+### Solution:
+
+* Use strict system prompts
+* Enforce JSON-only output
+* Validate response using `json.loads()`
 
 ---
 
-## 🚀 Next Steps
+## 🔥 What I Learned
 
-* Add structured JSON outputs (Day 3)
-* Build real-world use cases (invoice/data extraction)
-* Improve prompt control and validation
+* How to convert AI responses into structured data
+* Importance of prompt engineering for output control
+* How to validate and safely parse AI outputs
+* Building AI-powered data extraction APIs
+
+---
+
+## 🚀 Real-World Applications
+
+* Invoice processing systems
+* Resume parsing
+* Email data extraction
+* CRM automation workflows
 
 ---
 
 ## 📌 Note
 
-This project uses a local LLM via Ollama, so no external API or cost is involved.
-
----
-
-## 🔑 Key Takeaway
-On Day 2, I implemented chat memory by passing message history to the LLM. Since LLMs are stateless, maintaining context on the application side is necessary. I also added a system prompt to control behavior and limited the history to optimize performance.
+This project uses a local LLM via Ollama, so no external API cost is involved.
 
 ---
 
 ## 📢 Journey
 
-This is Day 2 of my 45-day journey into AI Engineering.
+This is Day 3 of my 45-day journey into AI Engineering.
