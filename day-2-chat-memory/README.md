@@ -135,6 +135,11 @@ This project uses a local LLM via Ollama, so no external API or cost is involved
 
 ---
 
+## 🔑 Key Takeaway
+On Day 2, I implemented chat memory by passing message history to the LLM. Since LLMs are stateless, maintaining context on the application side is necessary. I also added a system prompt to control behavior and limited the history to optimize performance.
+
+---
+
 ## 📢 Journey
 
 This is Day 2 of my 45-day journey into AI Engineering.
