@@ -1,3 +1,4 @@
 venv/
 __pycache__/
 day-1-ai-api/.env
+day-2-chat-memory/.env
