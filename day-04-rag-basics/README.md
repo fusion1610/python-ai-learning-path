@@ -164,6 +164,16 @@ More advanced RAG systems use embeddings and vector databases for efficient retr
 
 ---
 
+## 🔑 Key Takeaway
+
+On Day 4, I implemented a basic RAG system where the AI answers questions using custom data instead of relying only on the model’s internal knowledge.
+
+I stored my data in a text file and injected it into the prompt as context along with the user’s question. I also used a system prompt to ensure the model answers only from the provided context to reduce hallucinations.
+
+This helped me understand how external knowledge can be integrated with LLMs, which is the foundation of building real-world AI systems like document Q&A or company knowledge assistants.
+
+---
+
 ## 📢 Journey
 
 This is Day 4 of my 45-day journey into AI Engineering.
