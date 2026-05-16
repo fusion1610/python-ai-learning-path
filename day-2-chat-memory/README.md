@@ -57,8 +57,9 @@ Only the last few messages are sent to the model to:
 ```
 day-02-chat-memory/
 │
-├── main.py              # FastAPI app
-├── test_ai.py           # Local testing script
+├── app/
+│   └── main.py       # FastAPI app with /chat endpoint
+|   └── test_ai.py    # Testing script
 ├── requirements.txt
 ├── .gitignore
 └── README.md
