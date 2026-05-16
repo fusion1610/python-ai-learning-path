@@ -1,0 +1,4 @@
+FastAPI is a modern Python web framework.
+It is fast and easy to use.
+It supports automatic API documentation.
+It is widely used in backend systems.
