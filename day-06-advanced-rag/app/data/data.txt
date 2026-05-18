@@ -1,0 +1,15 @@
+FastAPI is a modern Python web framework used for building APIs and backend systems.
+FastAPI is known for high performance and automatic API documentation generation.
+FastAPI supports asynchronous programming using async and await.
+FastAPI is widely used for AI backend systems because it is lightweight and easy to integrate with machine learning models.
+Retrieval Augmented Generation, also called RAG, allows AI systems to answer questions using external knowledge.
+RAG systems work by retrieving relevant data and providing it as context to a language model.
+Embeddings convert text into numerical vectors that capture semantic meaning.
+Semantic search allows systems to retrieve information based on meaning instead of exact keyword matching.
+Cosine similarity is commonly used to compare embeddings and find similar text.
+Chunking is the process of splitting large documents into smaller pieces for efficient retrieval.
+Chunk overlap helps preserve context between chunks and improves retrieval quality.
+Vector databases like FAISS and Chroma are used to store embeddings and perform efficient similarity search.
+Hugging Face provides pretrained models for embeddings, text generation, and many other NLP tasks.
+Large Language Models are powerful reasoning systems but may hallucinate without proper grounding.
+Grounding helps ensure that AI systems answer based on provided context instead of making up information.
